@@ -17,14 +17,6 @@ class PipeEnvyTest < PryTest::Test
     assert output == "E"
   end
 
-  test "array pipes with union" do
-    output = "example" \
-      | :chars \
-      | [:union, ["a", "b", "c"]]
-    assert output == ["e", "x", "a", "m", "p", "l", "b", "c"]
-    assert output | :size == 8
-  end
-
   test "pipes with block" do
     output = [1, 2, 3, 4, 5, 6, 7, 8, 9] \
       | [:select!, -> (i) { i.even? }]

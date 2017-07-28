@@ -1,4 +1,3 @@
-require "delegate"
 require_relative "./pipe_envy/version"
 
 PIPE_ENVY_PIPE = -> (arg) do
@@ -17,20 +16,9 @@ PIPE_ENVY_PIPE = -> (arg) do
   else
     result = send(method, *args, &block)
   end
-  result = PipeEnvyArray.new(result) if result.is_a?(Array)
   #puts "#{self.class.name}, method=#{method.inspect}, args=#{args.inspect}, block=#{block.inspect}, result=#{result.inspect}"
   #puts
   result
-end
-
-class PipeEnvyArray < SimpleDelegator
-  define_method :|, &PIPE_ENVY_PIPE
-
-  # Original Array pipe operator method logic
-  # SEE: https://ruby-doc.org/core-2.4.1/Array.html#method-i-7C
-  def union(other_array=[])
-    (self + (other_array - self)).uniq
-  end
 end
 
 module PipeEnvy
