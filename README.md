@@ -24,6 +24,10 @@ Elixir's pipe operator is very cool & supports intuitive reasoning about data tr
 
 Rubyists can now enjoy this same mental model of data transformation.
 
+```sh
+gem install pipe_envy
+```
+
 ```ruby
 require "pipe_envy"
 using PipeEnvy # apply monkey patches using refinements
