@@ -11,7 +11,7 @@
 
 This lib is experimental & is probably not a good idea.
 
-> Note: PipeEnvy overrides the pipe operator on Array & Integer.
+> PipeEnvy overrides the pipe operator on Array & Integer.
 
 
 Elixir's pipe operator is very cool & supports intuitive reasoning about data transformations.
