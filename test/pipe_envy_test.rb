@@ -1,4 +1,7 @@
 require_relative "../lib/pipe_envy"
+require "coveralls"
+Coveralls.wear!
+SimpleCov.command_name "pry-test"
 using PipeEnvy
 
 class PipeEnvyTest < PryTest::Test
