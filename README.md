@@ -7,6 +7,8 @@
 
 # PipeEnvy
 
+[![Sponsor](https://app.codesponsor.io/embed/QMSjMHrtPhvfmCnk5Hbikhhr/hopsoft/pipe_envy.svg)](https://app.codesponsor.io/link/QMSjMHrtPhvfmCnk5Hbikhhr/hopsoft/pipe_envy)
+
 ## WARNING
 
 This lib is experimental & is probably not a good idea.
