@@ -61,7 +61,7 @@ magic = (1..100) \
 
 Be sure to check out [Chainable Methods](https://github.com/akitaonrails/chainable_methods) which offers similar behavior.
 
-Here's an example similar to the one on `chainable_methods`.
+Here's another example similar to the one on the `chainable_methods` repo.
 
 ```ruby
 magic = "foo bar http://github.com/hopsoft/pipe_envy foo bar" \
