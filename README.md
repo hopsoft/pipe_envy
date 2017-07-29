@@ -13,10 +13,13 @@
 
 This lib is experimental & is probably not a good idea.
 
-> PipeEnvy overrides the pipe operator on Array & Integer.
+> PipeEnvy overrides the pipe operator `|` on Array & Integer.
+> It also adds it to Object.
 
+## Fun Stuff
 
-Elixir's pipe operator is very cool & supports intuitive reasoning about data transformations.
+[Elixir's pipe operator](https://elixir-lang.org/getting-started/enumerables-and-streams.html#the-pipe-operator)
+is very cool & supports intuitive reasoning about data transformations similar to [Unix pipelines](https://en.wikipedia.org/wiki/Pipeline_(Unix)).
 
 ```elixir
 "Elixir Rocks" |> String.upcase |> String.split # => ["ELIXIR", "ROCKS"]
@@ -30,7 +33,9 @@ gem install pipe_envy
 
 ```ruby
 require "pipe_envy"
-using PipeEnvy # apply monkey patches using refinements
+
+# refinements that apply extensions to Object, Array, & Integer in the current scope
+using PipeEnvy
 
 "Ruby Rocks" | :upcase | :split # => ["RUBY", "ROCKS"]
 ```
@@ -53,3 +58,5 @@ Here's a more sophisticated albeit contrived example.
 
   # => 7
 ```
+
+Be sure to check out [Chainable Methods](https://github.com/akitaonrails/chainable_methods) which offers similar behavior.
