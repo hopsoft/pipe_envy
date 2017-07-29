@@ -76,4 +76,6 @@ magic = "foo bar http://github.com/hopsoft/pipe_envy foo bar" \
   | :first \
   | :text \
   | :strip
+
+# => "hopsoft/pipe_envy"
 ```
