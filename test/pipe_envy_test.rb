@@ -1,7 +1,10 @@
-require_relative "../lib/pipe_envy"
+require "open-uri"
+require "nokogiri"
 require "coveralls"
 Coveralls.wear!
 SimpleCov.command_name "pry-test"
+
+require_relative "../lib/pipe_envy"
 using PipeEnvy
 
 class PipeEnvyTest < PryTest::Test
@@ -37,5 +40,22 @@ class PipeEnvyTest < PryTest::Test
       | :to_i
 
     assert output == 7
+  end
+
+  # TODO: record http result so we don't request on each run
+  test "chainable methods repo example" do
+    output = "foo bar http://github.com/hopsoft/pipe_envy foo bar" \
+      | URI.method(:extract) \
+      | :first \
+      | URI.method(:parse) \
+      | :open \
+      | :readlines \
+      | :join \
+      | Nokogiri::HTML.method(:parse) \
+      | [:css, "h1"] \
+      | :first \
+      | :text \
+      | :strip
+    assert output == "hopsoft/pipe_envy"
   end
 end

@@ -44,19 +44,36 @@ Here's a more sophisticated albeit contrived example.
 *Notice that methods which require arguments are piped as Arrays.*
 
 ```ruby
-  magic = (1..100) \
-    | :to_a \
-    | [:select!, -> (i) { i.even? }] \
-    | [:map, -> (i) { i ** 10 }] \
-    | :sum \
-    | Math.method(:sqrt) \
-    | :to_s \
-    | :chars \
-    | :reverse \
-    | [:[], 3] \
-    | :to_i
+magic = (1..100) \
+  | :to_a \
+  | [:select!, -> (i) { i.even? }] \
+  | [:map, -> (i) { i ** 10 }] \
+  | :sum \
+  | Math.method(:sqrt) \
+  | :to_s \
+  | :chars \
+  | :reverse \
+  | [:[], 3] \
+  | :to_i
 
-  # => 7
+# => 7
 ```
 
 Be sure to check out [Chainable Methods](https://github.com/akitaonrails/chainable_methods) which offers similar behavior.
+
+Here's an example similar to the one on `chainable_methods`.
+
+```ruby
+magic = "foo bar http://github.com/hopsoft/pipe_envy foo bar" \
+  | URI.method(:extract) \
+  | :first \
+  | URI.method(:parse) \
+  | :open \
+  | :readlines \
+  | :join \
+  | Nokogiri::HTML.method(:parse) \
+  | [:css, "h1"] \
+  | :first \
+  | :text \
+  | :strip
+```

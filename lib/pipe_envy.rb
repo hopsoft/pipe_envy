@@ -22,15 +22,15 @@ PIPE_ENVY_PIPE = -> (arg) do
 end
 
 module PipeEnvy
-  refine Object do
-    define_method :|, &PIPE_ENVY_PIPE
+  def self.refine_pipe(klass)
+    refine klass do
+      define_method :|, &PIPE_ENVY_PIPE
+    end
   end
 
-  refine Array do
-    define_method :|, &PIPE_ENVY_PIPE
-  end
-
-  refine Integer do
-    define_method :|, &PIPE_ENVY_PIPE
-  end
+  refine_pipe Object
+  refine_pipe Array
+  refine_pipe Integer
+  refine_pipe Tempfile
+  refine_pipe Nokogiri::XML::NodeSet if defined? Nokogiri::XML::NodeSet
 end
