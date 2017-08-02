@@ -5,9 +5,9 @@
 [![Coverage Status](https://img.shields.io/coveralls/hopsoft/pipe_envy.svg?style=flat)](https://coveralls.io/r/hopsoft/pipe_envy?branch=master)
 [![Downloads](http://img.shields.io/gem/dt/pipe_envy.svg?style=flat)](http://rubygems.org/gems/pipe_envy)
 
-# PipeEnvy
-
 [![Sponsor](https://app.codesponsor.io/embed/QMSjMHrtPhvfmCnk5Hbikhhr/hopsoft/pipe_envy.svg)](https://app.codesponsor.io/link/QMSjMHrtPhvfmCnk5Hbikhhr/hopsoft/pipe_envy)
+
+# PipeEnvy
 
 ## WARNING
 
